@@ -14,26 +14,25 @@ class RawDatum < ApplicationRecord
      order("age DESC").last
   end
 
-  def number_of_olympians
-    list_of_olympians.count
+  def self.number_of_olympians
+   select(:name).distinct.count
   end
 
-  def self.female_average_weight
+  def self.avg_female_weight
     select('distinct on (name) *')
     .where(sex: "F")
     .average(:weight)
   end
 
 
-  def self.male_average_weight
+  def self.avg_male_weight
     select('distinct on (name) *')
     .where(sex: "M")
     .average(:weight)
   end
 
   def self.average_age
-    select('distinct on (name) *')
-    .average(:age)
+    select('distinct on (name) *').average(:age)
   end
 
 
