@@ -5,12 +5,8 @@ class Event < ApplicationRecord
 
   def self.medalists(event_id)
     event = find(event_id)
-    medals = event.medals.reject do |medal|
-      medal.name == "NA"
-    end
-    medalists = medals.map do |medal|
-      {medal.name => medal.olympian}
-    end
-      {event.name => medalists}
+    medals = event.medals.reject { |medal| medal.name == "NA"}
+    medalists = medals.map {|medal|{medal.name => medal.olympian}}
+    {event.name => medalists}
   end
 end

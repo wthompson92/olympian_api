@@ -1,5 +1,4 @@
 class Olympian < ApplicationRecord
-  attr_accessor :medal
   belongs_to :sport
   has_many :medals
   has_many :events, through: :medals
@@ -36,10 +35,5 @@ class Olympian < ApplicationRecord
     olympic_medals.each do |k,v|
       self.find(k).update_column(:medal_count, v)
     end
-  end
-
-    def medal_type(medal)
-      @medal = medal
-
   end
 end
