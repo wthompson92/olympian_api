@@ -7,6 +7,7 @@ class CreateOlympians < ActiveRecord::Migration[5.2]
       t.integer :age
       t.integer :weight
       t.references :sport, index: true
+      t.integer :medal_count, default: 0
 
       t.timestamps
     end

@@ -1,14 +1,15 @@
 class Api::V1::OlympiansController < ApplicationController
-
+  before_action :show
   def index
-    render json: RawDatum.list_of_olympians.to_json
+    Olympian.medal_count
+    render json: Olympian.all
   end
 
   def show
     if params[:age] == "oldest"
-      render json: RawDatum.oldest_olympians.to_json
+      render json: Olympian.oldest_olympian.to_json
     elsif params[:age] == "youngest"
-      render json: RawDatum.youngest_olympian.to_json
+      render json: Olympian.youngest_olympian
     end
   end
 end

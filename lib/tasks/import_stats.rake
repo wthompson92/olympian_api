@@ -14,13 +14,14 @@ task :import => [:environment] do
       sex: row['Sex'],
       weight: row['Weight'],
       sport: sport,
-      team: row['Team'])
+      team: row['Team'],
+      medal_count: 0)
 
    event = Event.find_or_create_by(
       name: row["Event"],
       sport: sport)
 
-    medal =  Medal.find_or_create_by(
+    medal =  Medal.create(
        name: row["Medal"],
        olympian: olympian,
        event: event)

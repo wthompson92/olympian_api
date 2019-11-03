@@ -40,6 +40,7 @@ ActiveRecord::Schema.define(version: 2019_11_03_040402) do
     t.integer "age"
     t.integer "weight"
     t.bigint "sport_id"
+    t.integer "medal_count", default: 0
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["sport_id"], name: "index_olympians_on_sport_id"
