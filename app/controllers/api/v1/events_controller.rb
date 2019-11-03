@@ -5,9 +5,6 @@ class Api::V1::EventsController < ApplicationController
   end
 
   def show
-    a =  Event.medalists(params[:id])
-
-
-    binding.pry
+    render json:  Event.medalists(params[:id])
   end
 end
