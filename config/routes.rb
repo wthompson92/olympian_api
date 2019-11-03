@@ -4,7 +4,7 @@ Rails.application.routes.draw do
     get "/olympians", to: "olympians#index"
     get "/olympians", to: "olympians#show"
     get 'olympian_stats', to: "stats#show"
-    # get 'events', to: "events#index"
+    get '/events', to: "events#index"
 
     end
   end

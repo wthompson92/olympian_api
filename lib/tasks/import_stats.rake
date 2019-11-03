@@ -3,15 +3,31 @@ require 'csv'
 task :import => [:environment] do
   stats_file = "db/csv/stats.csv"
 
-  stats = []
   converter = lambda { |header| header.downcase }
-  CSV.foreach(stats_file, :headers => true, header_converters: converter) do |row|
-    row.headers.map do |header|
-      header.downcase
-      stats << row.to_hash
-    end
+  CSV.foreach(stats_file, :headers => true) do |row|
+    # row[:name]
+    # row[:sex]
+    # row[:age]
+    # row[:age]
+    # row[:height]
+    # row[:weight]
+    # row[:team]
+    # row[:sport]
+    # row[:event]
+
+   sport = Sport.find_or_create_by(name: row['Sport'])
+
+   olympian = Olympian.find_or_create_by(
+      name: row['Name'],
+      age: row['Age'],
+      sex: row['Sex'],
+      weight: row['Weight'],
+      sport: sport,
+      team: row['Team'])
+
+   event = Event.find_or_create_by(
+      name: row["Event"],
+      sport: sport)
   end
-  RawDatum.import!(stats)
-  p "Stats imported"
 
 end
