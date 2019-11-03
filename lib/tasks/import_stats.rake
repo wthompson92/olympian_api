@@ -5,15 +5,6 @@ task :import => [:environment] do
 
   converter = lambda { |header| header.downcase }
   CSV.foreach(stats_file, :headers => true) do |row|
-    # row[:name]
-    # row[:sex]
-    # row[:age]
-    # row[:age]
-    # row[:height]
-    # row[:weight]
-    # row[:team]
-    # row[:sport]
-    # row[:event]
 
    sport = Sport.find_or_create_by(name: row['Sport'])
 
@@ -28,6 +19,11 @@ task :import => [:environment] do
    event = Event.find_or_create_by(
       name: row["Event"],
       sport: sport)
+
+    medal =  Medal.find_or_create_by(
+       name: row["Medal"],
+       olympian: olympian,
+       event: event)
   end
 
 end

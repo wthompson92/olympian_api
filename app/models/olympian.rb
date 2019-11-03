@@ -1,4 +1,5 @@
 class Olympian < ApplicationRecord
   belongs_to :sport
-  has_and_belongs_to_many :events
+  has_many :medals
+  has_many :events, through: :medals
 end
