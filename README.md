@@ -7,7 +7,7 @@
 ### Olympians
 #### Request
 `/api/v1/olympians`
-link(https://guarded-cove-30771.herokuapp.com/api/v1/olympians)
+https://guarded-cove-30771.herokuapp.com/api/v1/olympians
 
 ####  Response
 ```
@@ -42,6 +42,7 @@ link(https://guarded-cove-30771.herokuapp.com/api/v1/olympians)
 ### Youngest Olympian
 #### Request
 `/api/v1/olympians?age=youngest`
+
 https://guarded-cove-30771.herokuapp.com/api/v1/olympians?age=youngest
 
 #### Response
@@ -63,6 +64,7 @@ https://guarded-cove-30771.herokuapp.com/api/v1/olympians?age=youngest
 ### Oldest Olympian
 #### Request
 `/api/v1/olympians?age=oldest`
+
 https://guarded-cove-30771.herokuapp.com/api/v1/olympians?age=oldest
 #### Response
 ```
@@ -181,6 +183,7 @@ https://guarded-cove-30771.herokuapp.com/api/v1/events
 
 #### Request
 `/api/v1/events/10/medalists`
+
 https://guarded-cove-30771.herokuapp.com/api/v1/events/10/medalists
 #### Response
 ```
