@@ -12,13 +12,12 @@ class Olympian < ApplicationRecord
   end
 
   def self.number_of_olympians
-   select(:name).distinct.count
+    select(:name).distinct.count
   end
 
   def self.avg_female_weight
     where(sex: "F").average(:weight)
   end
-
 
   def self.avg_male_weight
     where(sex: "M").average(:weight)
@@ -34,9 +33,7 @@ class Olympian < ApplicationRecord
 
   def self.medal_count
     olympic_medals.each do |k,v|
-
-    self.find(k).update_column(:medal_count, v)
-  end
-
+      self.find(k).update_column(:medal_count, v)
+    end
   end
 end

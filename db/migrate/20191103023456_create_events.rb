@@ -3,7 +3,6 @@ class CreateEvents < ActiveRecord::Migration[5.2]
     create_table :events do |t|
       t.string :name
       t.references :sport, index: true
-
       t.timestamps
     end
   end

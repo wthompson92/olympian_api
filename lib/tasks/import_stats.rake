@@ -6,9 +6,9 @@ task :import => [:environment] do
   converter = lambda { |header| header.downcase }
   CSV.foreach(stats_file, :headers => true) do |row|
 
-   sport = Sport.find_or_create_by(name: row['Sport'])
+    sport = Sport.find_or_create_by(name: row['Sport'])
 
-   olympian = Olympian.find_or_create_by(
+    olympian = Olympian.find_or_create_by(
       name: row['Name'],
       age: row['Age'],
       sex: row['Sex'],
@@ -17,14 +17,13 @@ task :import => [:environment] do
       team: row['Team'],
       medal_count: 0)
 
-   event = Event.find_or_create_by(
+    event = Event.find_or_create_by(
       name: row["Event"],
       sport: sport)
 
     medal =  Medal.create(
-       name: row["Medal"],
-       olympian: olympian,
-       event: event)
+      name: row["Medal"],
+      olympian: olympian,
+      event: event)
   end
-
 end

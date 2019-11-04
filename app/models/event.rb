@@ -3,19 +3,10 @@ class Event < ApplicationRecord
   has_many :medals
   has_many :olympians, through: :medals
 
-  def self.event_medals(event_id)
-    find(event_id).medals.reject do |medal|
-    medal.name == "NA"
-  end
-  end
-
   def self.medalists(event_id)
-    m = event_medals(event_id).map do |medal|
-      Olympian.find(medal.olympian_id)
-
-    end
-binding.pry
-
+    event = find(event_id)
+    medals = event.medals.reject { |medal| medal.name == "NA"}
+    medalists = medals.map {|medal|{medal.name => medal.olympian}}
+    {event.name => medalists}
   end
-
 end
