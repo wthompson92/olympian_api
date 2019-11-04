@@ -35,10 +35,11 @@ gem 'fast_jsonapi'
 group :development, :test do
   gem 'graphiql-rails'
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
-  gem 'rspec-rails', '~> 3.5'
+  gem 'rspec-rails'
   gem 'capybara'
-    gem 'simplecov'
-    gem 'shoulda-matchers'
+  gem 'simplecov'
+  gem 'shoulda-matchers'
+  gem 'launchy'
   end
 
 group :development do

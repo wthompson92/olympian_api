@@ -11,7 +11,20 @@
 # a separate helper file that requires the additional dependencies and performs
 # the additional setup, and require it from the spec files that actually need
 # it.
-#
+require 'simplecov'
+
+  SimpleCov.start 'rails' do
+    add_filter '/bin/'
+    add_filter '/db/'
+    add_filter '/app/controllers/concerns'
+    add_filter '/app/mailers/'
+    add_filter '/app/channels/'
+    add_filter '/app/controllers/home_controller'
+    add_filter '/app/helpers/'
+    add_filter '/app/jobs/'
+    add_filter '/spec/' # for rspec
+    add_filter '/test/' # for minitestend
+  end
 # See http://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
 RSpec.configure do |config|
   # rspec-expectations config goes here. You can use an alternate
@@ -93,4 +106,6 @@ RSpec.configure do |config|
   # as the one that triggered the failure.
   Kernel.srand config.seed
 =end
+
+
 end

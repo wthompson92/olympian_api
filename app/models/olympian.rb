@@ -2,7 +2,12 @@ class Olympian < ApplicationRecord
   belongs_to :sport
   has_many :medals
   has_many :events, through: :medals
-
+  validates_presence_of :name,
+                       :sex,
+                       :age,
+                       :weight,
+                       :team
+                       
   def self.oldest_olympian
     order(:age).last
   end
